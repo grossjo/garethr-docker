@@ -96,6 +96,7 @@ define docker::image(
       path        => ['/bin', '/usr/bin'],
       timeout     => 0,
       onlyif      => $image_install,
+      returns     => ['0', '1'],
       require     => File['/usr/local/bin/update_docker_image.sh'],
     }
   } elsif $ensure == 'present' {
